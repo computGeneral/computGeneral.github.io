@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<a class="back-link" href="{{ '/' | relative_url }}">‹ Home</a>
+<div class="blog-heading">
+  <h1>{{ page.title | escape }}</h1>
+  <a class="action-link" href="{{ '/admin/' | relative_url }}#/collections/{{ page.category }}/new">New post <span aria-hidden="true">＋</span></a>
+</div>
+{% assign posts = site[page.category] | sort: 'date' | reverse %}
+{% if posts.size > 0 %}
+<div class="post-list">
+{% for post in posts %}
+  <a class="post-row" href="{{ post.url | relative_url }}">
+    <div><h2>{{ post.title | escape }}</h2>{% if post.description %}<p>{{ post.description | escape }}</p>{% endif %}</div>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
+  </a>
+{% endfor %}
+</div>
+{% else %}
+<div class="empty-state"><p>No posts yet.</p><p>Ideas and updates will appear here.</p></div>
+{% endif %}

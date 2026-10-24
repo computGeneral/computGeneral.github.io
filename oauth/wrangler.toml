@@ -1,0 +1,9 @@
+name = "computgeneral-blog-auth"
+main = "worker.mjs"
+compatibility_date = "2026-10-24"
+
+[vars]
+SITE_ORIGIN = "https://www.computgeneral.com"
+OAUTH_ORIGIN = "https://blog-auth.computgeneral.com"
+# Set GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET with `wrangler secret put`.
+# Configure blog-auth.computgeneral.com as this Worker's custom domain.

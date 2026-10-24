@@ -3,3 +3,9 @@ _site
 Gemfile.lock
 *.gem
 .jekyll-cache
+
+# OAuth credentials stay outside Git and the published site.
+.dev.vars
+.env
+.env.*
+.wrangler/

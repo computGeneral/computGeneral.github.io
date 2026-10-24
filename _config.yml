@@ -10,3 +10,26 @@ exclude:
   - README.md
   - docs
   - script
+  - oauth
+  - tests
+  - package.json
+collections:
+  computing:
+    output: true
+    permalink: /computing/:name/
+  rendering:
+    output: true
+    permalink: /rendering/:name/
+defaults:
+  - scope:
+      path: ""
+      type: computing
+    values:
+      layout: post
+      category: computing
+  - scope:
+      path: ""
+      type: rendering
+    values:
+      layout: post
+      category: rendering

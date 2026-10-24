@@ -1,0 +1,7 @@
+body { margin: 0; background: #fff; color: #18171c; font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+#editor-status, #editor-help { margin: 32px 24px; }
+#editor-help { max-width: 640px; }
+#editor-help a { display: inline-block; margin-right: 24px; color: #49454f; }
+/* Keep the editing workspace neutral like the public CGI-styled pages. */
+[class*="AppHeader"], [class*="SidebarContainer"] { background-color: #fff; }
+[class*="Card"], [class*="ControlPane"] { border-color: #eaeaea; box-shadow: none; }

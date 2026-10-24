@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: computGeneral/computGeneral.github.io
+  branch: main
+  base_url: https://blog-auth.computgeneral.com
+  auth_endpoint: auth
+  auth_scope: public_repo
+site_url: https://www.computgeneral.com
+display_url: https://www.computgeneral.com
+logo_url: https://www.computgeneral.com/assets/img/computgeneral.svg
+locale: en
+media_folder: assets/uploads
+public_folder: /assets/uploads
+slug:
+  encoding: ascii
+  clean_accents: true
+collections:
+  - name: computing
+    label: General Computing
+    label_singular: Post
+    folder: _computing
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    preview_path: computing/{{slug}}/
+    sortable_fields: [date, title]
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime}
+      - {label: Summary, name: description, widget: text, required: false}
+      - {label: Author, name: author, widget: string, required: false}
+      - {label: Body, name: body, widget: markdown}
+  - name: rendering
+    label: General Rendering
+    label_singular: Post
+    folder: _rendering
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    preview_path: rendering/{{slug}}/
+    sortable_fields: [date, title]
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Date, name: date, widget: datetime}
+      - {label: Summary, name: description, widget: text, required: false}
+      - {label: Author, name: author, widget: string, required: false}
+      - {label: Body, name: body, widget: markdown}
