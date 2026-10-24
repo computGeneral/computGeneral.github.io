@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<center>Welcome to <b>C</b>ompute <b>G</b>eneral <b>L</b>ab (<b>CGL</b>)</center>
+<center>Welcome to <b>ComputGeneral</b></center>
 
 ----
 
-# CGL Research Areas
+# ComputGeneral Research Areas
 
-> A brief Record for the CGL's recent to do list (check [CGL SCHEDULE](./doc/arch/CGL_SCHEDULE.xlsx) for more detials and progress)
+> A brief Record for the ComputGeneral's recent to do list (check [ComputGeneral SCHEDULE](./doc/arch/CGL_SCHEDULE.xlsx) for more detials and progress)
 
 ### [General Computing](./docs/arch/compute/computeIndex.html)
 #### CPU ARCH [CG0](https://github.com/ComputeGeneral/CG0.git)

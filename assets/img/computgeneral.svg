@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="90" viewBox="0 0 320 90"><defs><mask id="domain-cutout" maskUnits="userSpaceOnUse" x="0" y="0" width="320" height="90">
+<rect width="320" height="90" fill="white"/>
+<g transform="translate(296.20755 57.316190000000006) rotate(-90) scale(0.27)">
+<text x="0" y="21.486" font-family="Verdana" font-size="38" font-weight="700" fill="black">.com</text>
+</g></mask></defs>
+<text x="160" y="59" text-anchor="middle" fill="#888888" font-family="Verdana" font-size="38" font-weight="400" letter-spacing="-1.5" mask="url(#domain-cutout)">comput<tspan font-weight="700">General</tspan></text></svg>

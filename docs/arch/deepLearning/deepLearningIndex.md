@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<center><b>Compute General Lab</b> | DeepLearning Notes</center>
+<center><b>ComputGeneral</b> | DeepLearning Notes</center>
 
 [back](../../../index.html)
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<center><b>Compute General Lab</b> | Graphics Notes</center>
+<center><b>ComputGeneral</b> | Graphics Notes</center>
 
 [back](../../../index.html)
 
