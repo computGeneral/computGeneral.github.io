@@ -2,8 +2,9 @@
 
 Minimal English-language organization website, using the CGI wordmark and light theme palette.
 
-- `index.md`: short introduction with External and Internal entries.
-- `external.md`: public organization introduction, served at `/external/`.
+- `index.md`: short introduction with General Computing, General Rendering and General Intelligentia (CGI) entries.
+- `computing.md` and `rendering.md`: public introduction pages for the two areas.
+- `external.md`: previous organization introduction, retained at `/external/` for existing links.
 - `_config.yml`: branding, description, GitHub profile and CGI workspace URL.
 - `assets/css/style.scss`: responsive layout and styles.
 - `_layouts/default.html`: shared page structure.
