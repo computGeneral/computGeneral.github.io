@@ -19,9 +19,765 @@
 </style></head><body>
 <header><div class="eyebrow">ARCHEXPLOR / DEVELOPMENT MAP</div><h1>开发路线图</h1><p>先看全程路线，再看当前阶段的步骤。每条线独占一行。</p><div class="meta"><span id="snapshot"></span><span>主仓 HEAD <code id="head"></code></span><span>离线快照 · 非实时监控</span></div></header>
 <main><section class="summary" aria-label="开发线状态概览" id="summary"></section><p class="notice" id="notice"></p><div class="controls"><div class="filters" role="group" aria-label="按状态筛选" id="filters"></div><input class="search" id="search" type="search" placeholder="搜索开发线、问题或下一步…" aria-label="搜索开发线、问题或下一步"></div><div class="legend"><span><i class="dot done"></i>当前包已验阶段</span><span><i class="dot current"></i>当前节点，不等于正在执行</span><span><i class="dot"></i>后续规划</span><span><i class="dot unknown"></i>证据不足／未复核</span><span class="count" id="count" aria-live="polite"></span><span class="order-note">按最近实质进展排序 · 未知时间置后</span></div><section class="cards" id="cards" aria-label="各开发线路线图"></section><div class="empty" id="empty">没有匹配的开发线，请换个关键词或筛选条件。</div><footer><span>第一轨为完整规划，第二轨为当前阶段步骤；均不表示全线完成率。</span><span>规划 → 实跑 → 验收 → 提交，分别记录，不混为完成。</span></footer></main>
-<script id="progress-data" type="application/json">
-{"title":"ArcheXplor 开发路线图","updatedAt":"2026-11-18 01:43:47 UTC+8","head":"","notice":"上轨根据每线的整体规范和原始规划整理，保留正式阶段、独立支线和并行关系。找不到统一阶段表的按并列工作域展示。下轨只显示当前步骤；最近实质进展决定排序。","lines":[{"id":"funcmodel","name":"FuncModel","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"M0 · 事实与合同","state":"unknown"},{"label":"M1 · 可构造模型","state":"unknown"},{"label":"M2 · 模型内闭环","state":"unknown"},{"label":"M3 · 端到端验证","state":"current"},{"label":"M4 · 通用装载","state":"planned"},{"label":"M5 · 长期验收","state":"planned"}],"current":"当前阶段：M3 · 端到端验证","issue":"功能模型待补运行接线与完整验证。","next":"核对框架输入与执行条件。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T00:56:53+08:00","progressLabel":"11-17 00:56 UTC+8 · 实质进展","roadmapBasis":"按原始计划里程碑展示；不是整条线的验收结论。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"路径修订","state":"done"},{"label":"专项对照","state":"done"},{"label":"核对框架输入","state":"current"},{"label":"复核运行条件","state":"planned"},{"label":"框架验证","state":"planned"}]},{"id":"microbench","name":"Microbench","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"P0 · 合同审计","state":"done"},{"label":"P1 · 最小链路贯通","state":"done"},{"label":"P2 · 暂缓阶段","state":"unknown"},{"label":"P3 · 框架能力","state":"current"},{"label":"P4 · 功能、精度与性能","state":"planned"},{"label":"P5 · 流程整合","state":"planned"},{"label":"独立工具路线","state":"unknown"}],"current":"当前阶段：P3 · 框架能力","issue":"等待同源构建产物，再进行模型读回。","next":"生成同源构建产物后做模型读回。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T00:27:28+08:00","progressLabel":"11-17 00:27 UTC+8 · 实质进展","roadmapBasis":"原规划保留暂缓项与独立工具支线。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"用例准备","state":"done"},{"label":"轻量检查","state":"done"},{"label":"同源构建","state":"current"},{"label":"模型读回","state":"planned"},{"label":"验证与交付","state":"planned"}]},{"id":"isagen","name":"IsaGen","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"0 · 能力边界","state":"unknown"},{"label":"0.5 · 类型化 Schema","state":"unknown"},{"label":"1 · 解码","state":"unknown"},{"label":"2 · 差分验证","state":"current"},{"label":"3 · 编码与汇编","state":"planned"},{"label":"4 · 编译器接入","state":"planned"},{"label":"5 · 架构语义","state":"planned"},{"label":"6 · 形式化语义","state":"planned"},{"label":"7 · 分析工具接入","state":"planned"}],"current":"当前阶段：2 · 差分验证","issue":"组件检查与模型专项分别验收；当前补齐输入来源。","next":"补全来源证据，再推进模型专项。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-16T22:31:56+08:00","progressLabel":"11-16 22:31 UTC+8 · 实质进展","roadmapBasis":"按原始计划里程碑展示；不是整条线的验收结论。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"兼容性检查","state":"done"},{"label":"组件记录检查","state":"done"},{"label":"关联构建来源","state":"current"},{"label":"核对验证证据","state":"planned"},{"label":"模型验证","state":"planned"}]},{"id":"perfmodel","name":"PerfModel","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"P0 · 模型合同","state":"unknown"},{"label":"P1 · 独立执行框架","state":"unknown"},{"label":"P2 · 追踪与差分","state":"unknown"},{"label":"P3 · 计算纵切片","state":"current"},{"label":"P4 · 硬件精度","state":"planned"},{"label":"P5 · 可观测性","state":"planned"},{"label":"P6 · 多时钟与并行","state":"planned"},{"label":"P7 · 仿真性能优化","state":"planned"}],"current":"当前阶段：P3 · 计算纵切片","issue":"先对齐运行环境和输入，再做原生专项验证。","next":"先对齐运行环境，再跑原生专项。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-16T22:26:46+08:00","progressLabel":"11-16 22:26 UTC+8 · 实质进展","roadmapBasis":"按原始计划里程碑展示；不是整条线的验收结论。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"开发验收入口","state":"done"},{"label":"离线检查","state":"done"},{"label":"绑定运行环境","state":"current"},{"label":"原生专项","state":"planned"},{"label":"集成验证","state":"planned"}]},{"id":"replay","name":"Replay","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"M0 · 执行契约","state":"done"},{"label":"M1 · 内核文本回放","state":"done"},{"label":"M2 · 扩展与二进制","state":"done"},{"label":"M3 · 流连续性","state":"unknown"},{"label":"M4 · 恢复与性能","state":"planned"},{"label":"构建来源校验","state":"current"}],"current":"当前阶段：构建来源校验","issue":"编译来源方案正在复审；回放正文和最终化分别验收。","next":"复审来源规则，验证完整回放终态。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":null,"progressLabel":"时间未核实","roadmapBasis":"上轨保留原始里程碑和独立构建来源支线。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"支持组件","state":"done"},{"label":"修订来源方案","state":"done"},{"label":"审查失败记录规则","state":"current"},{"label":"实施修订","state":"planned"},{"label":"正式验证","state":"planned"}]},{"id":"archvisual","name":"ArchVisual","owner":"","status":"verified","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"数据展示","state":"unknown"},{"label":"交互与联动","state":"unknown"},{"label":"渲染与验证","state":"unknown"},{"label":"发布与维护","state":"current"}],"current":"当前阶段：发布与维护","issue":"本批产品已发布；正在整理辅助资料，不把未做专项计为通过。","next":"区分要维护的文档和辅助资料。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T15:15:33+08:00","progressLabel":"11-17 15:15 UTC+8 · 实质进展","roadmapBasis":"此处为并列工作域；未找到可核实的全局阶段顺序。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"产品修复","state":"done"},{"label":"浏览器专项","state":"done"},{"label":"发布与接入","state":"done"},{"label":"资料核对","state":"current"},{"label":"独立补充验证","state":"unknown"}]},{"id":"physical","name":"Physical","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"1 · 接口与命令合同","state":"unknown"},{"label":"2 · 独立参数与数值验证","state":"unknown"},{"label":"3 · 结果通路与阵列","state":"current"},{"label":"4 · 命令端到端","state":"planned"},{"label":"5 · 系统级物理闭环","state":"planned"}],"current":"当前阶段：3 · 结果通路与阵列","issue":"新候选已做准备检查，动态证据和原生验证还未完成。","next":"完成动态证据检查，再准备原生验证。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T21:16:19+08:00","progressLabel":"11-17 21:16 UTC+8 · 实质进展","roadmapBasis":"按原始计划里程碑展示；不是整条线的验收结论。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"准备检查","state":"done"},{"label":"轻量验证","state":"done"},{"label":"核对工具与范围","state":"current"},{"label":"核实动态证据","state":"planned"},{"label":"核对清退证据","state":"planned"}]},{"id":"compiler","name":"Compiler","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"输入与来源","state":"unknown"},{"label":"IR 与后端","state":"unknown"},{"label":"并行与链接优化","state":"unknown"},{"label":"指令与工具","state":"current"},{"label":"对象与发布","state":"unknown"}],"current":"当前阶段：指令与工具","issue":"已有来源校验交付；新指令仍需使用包含候选的工具链验证。","next":"核验候选工具后进行指令专项。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T07:42:27+08:00","progressLabel":"11-17 07:42 UTC+8 · 实质进展","roadmapBasis":"此处为并列工作域；未找到可核实的全局阶段顺序。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"来源校验","state":"done"},{"label":"绑定候选工具","state":"current"},{"label":"编码与反汇编","state":"planned"},{"label":"拒绝用例及回归","state":"planned"}]},{"id":"energy","name":"Energy","owner":"","status":"verified","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"E-1 · 命名","state":"unknown"},{"label":"E0 · 合同","state":"unknown"},{"label":"E1 · 内核快照","state":"unknown"},{"label":"E2 · 表征与参考值","state":"current"},{"label":"E3 · 活动规范化","state":"planned"},{"label":"E4 · 计算能耗","state":"planned"},{"label":"E5 · 存储与互联能耗","state":"planned"},{"label":"E6 · 扩展计算组件","state":"planned"},{"label":"E7 · 全芯片能耗","state":"planned"},{"label":"E8 · 退役与回归","state":"planned"},{"label":"E9 · 校准","state":"planned"}],"current":"当前阶段：E2 · 表征与参考值","issue":"参考模型组件已验证；整体验收与后续能耗聚合另行安排。","next":"单独规划后续活动与能耗聚合。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T14:48:39+08:00","progressLabel":"11-17 14:48 UTC+8 · 实质进展","roadmapBasis":"表征与活动可并行准备；计算与存储验证可分开推进；最终校准依赖表征和全芯片测评。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"分组对齐","state":"done"},{"label":"分组合并","state":"done"},{"label":"原生测试与交付","state":"done"},{"label":"聚合规划","state":"current"},{"label":"正式验收","state":"planned"}]},{"id":"modelbench","name":"Modelbench","owner":"","status":"waiting","stageBasis":"调度归纳 · 仅针对当前包","stages":[{"label":"网络与通信","state":"unknown"},{"label":"部署配置","state":"unknown"},{"label":"运行组件","state":"current"},{"label":"消费者接入","state":"planned"},{"label":"产物交接","state":"planned"},{"label":"报告与迁移","state":"planned"},{"label":"有界验收","state":"planned"}],"current":"运行组件阶段性代码已保存；未完成工程验收","issue":"检查用例已准备，但组件导入、编译、链接及运行检查尚未执行；代码保存不代表验证通过。","next":"重新绑定当前输入与验证环境，完成组件工程验收，再审查生产接入。","commit":"","evidence":[],"checkedAt":"2026-11-18 01:43:47 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-18T00:08:41+08:00","progressLabel":"11-18 00:08 UTC+8 · 阶段性代码已保存","roadmapBasis":"运行组件可独立验证，并非其它阶段的硬前置。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"运行组件实现","state":"done"},{"label":"检查用例准备","state":"done"},{"label":"阶段性代码保存（非验收）","state":"done"},{"label":"绑定验证环境","state":"current"},{"label":"组件验证","state":"planned"},{"label":"消费者接入","state":"planned"}]},{"id":"autoarch","name":"AutoArch","owner":"","status":"unverified","stageBasis":"已交付记录 · 当前节点未复核","stages":[{"label":"P0 · 实验基础","state":"unknown"},{"label":"P1 · 单 Agent 验证","state":"unknown"},{"label":"P2 · 多层级探索","state":"unknown"},{"label":"P3 · 架构开发闭环","state":"unknown"},{"label":"P4 · 经验复用","state":"unknown"},{"label":"物理评估反馈","state":"unknown"}],"current":"独立开发 · 当前阶段未核实","issue":"公共环境与案例入口的交付已确认；本页不推断独立开发线的当前状态。","next":"由该线独立安排后续工作。","commit":"","evidence":[],"checkedAt":"2026-11-17 21:19:52 UTC+8","stepsTitle":"当前阶段步骤","progressAt":"2026-11-17T08:45:34+08:00","progressLabel":"11-17 08:45 UTC+8 · 实质进展","roadmapBasis":"开发线独立推进；物理反馈是单独支线。","stepsBasis":"不含内部回执或环境信息","steps":[{"label":"已交付的入口","state":"done"},{"label":"真实案例验证","state":"unknown"},{"label":"当前子步骤","state":"unknown"}]}],"publicView":true}
-</script>
+<script id="progress-data" type="application/json">{
+  "title": "ArcheXplor 开发路线图",
+  "updatedAt": "2026-11-18 03:42:04 UTC+8",
+  "head": "",
+  "notice": "上轨根据每线的整体规范和原始规划整理，保留正式阶段、独立支线和并行关系。找不到统一阶段表的按并列工作域展示。下轨只显示当前步骤；最近实质进展决定排序。",
+  "lines": [
+    {
+      "id": "funcmodel",
+      "name": "FuncModel",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "M0 · 事实与合同",
+          "state": "unknown"
+        },
+        {
+          "label": "M1 · 可构造模型",
+          "state": "unknown"
+        },
+        {
+          "label": "M2 · 模型内闭环",
+          "state": "unknown"
+        },
+        {
+          "label": "M3 · 端到端验证",
+          "state": "current"
+        },
+        {
+          "label": "M4 · 通用装载",
+          "state": "planned"
+        },
+        {
+          "label": "M5 · 长期验收",
+          "state": "planned"
+        }
+      ],
+      "current": "当前阶段：M3 · 端到端验证",
+      "issue": "功能模型待补运行接线与完整验证。",
+      "next": "核对框架输入与执行条件。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T00:56:53+08:00",
+      "progressLabel": "11-17 00:56 UTC+8 · 实质进展",
+      "roadmapBasis": "按原始计划里程碑展示；不是整条线的验收结论。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "路径修订",
+          "state": "done"
+        },
+        {
+          "label": "专项对照",
+          "state": "done"
+        },
+        {
+          "label": "核对框架输入",
+          "state": "current"
+        },
+        {
+          "label": "复核运行条件",
+          "state": "planned"
+        },
+        {
+          "label": "框架验证",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "microbench",
+      "name": "Microbench",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "P0 · 合同审计",
+          "state": "done"
+        },
+        {
+          "label": "P1 · 最小链路贯通",
+          "state": "done"
+        },
+        {
+          "label": "P2 · 暂缓阶段",
+          "state": "unknown"
+        },
+        {
+          "label": "P3 · 框架能力",
+          "state": "current"
+        },
+        {
+          "label": "P4 · 功能、精度与性能",
+          "state": "planned"
+        },
+        {
+          "label": "P5 · 流程整合",
+          "state": "planned"
+        },
+        {
+          "label": "独立工具路线",
+          "state": "unknown"
+        }
+      ],
+      "current": "当前阶段：P3 · 框架能力",
+      "issue": "等待同源构建产物，再进行模型读回。",
+      "next": "生成同源构建产物后做模型读回。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T00:27:28+08:00",
+      "progressLabel": "11-17 00:27 UTC+8 · 实质进展",
+      "roadmapBasis": "原规划保留暂缓项与独立工具支线。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "用例准备",
+          "state": "done"
+        },
+        {
+          "label": "轻量检查",
+          "state": "done"
+        },
+        {
+          "label": "同源构建",
+          "state": "current"
+        },
+        {
+          "label": "模型读回",
+          "state": "planned"
+        },
+        {
+          "label": "验证与交付",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "isagen",
+      "name": "IsaGen",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "0 · 能力边界",
+          "state": "unknown"
+        },
+        {
+          "label": "0.5 · 类型化 Schema",
+          "state": "unknown"
+        },
+        {
+          "label": "1 · 解码",
+          "state": "unknown"
+        },
+        {
+          "label": "2 · 差分验证",
+          "state": "current"
+        },
+        {
+          "label": "3 · 编码与汇编",
+          "state": "planned"
+        },
+        {
+          "label": "4 · 编译器接入",
+          "state": "planned"
+        },
+        {
+          "label": "5 · 架构语义",
+          "state": "planned"
+        },
+        {
+          "label": "6 · 形式化语义",
+          "state": "planned"
+        },
+        {
+          "label": "7 · 分析工具接入",
+          "state": "planned"
+        }
+      ],
+      "current": "当前阶段：2 · 差分验证",
+      "issue": "组件检查与模型专项分别验收；当前补齐输入来源。",
+      "next": "补全来源证据，再推进模型专项。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-16T22:31:56+08:00",
+      "progressLabel": "11-16 22:31 UTC+8 · 实质进展",
+      "roadmapBasis": "按原始计划里程碑展示；不是整条线的验收结论。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "兼容性检查",
+          "state": "done"
+        },
+        {
+          "label": "组件记录检查",
+          "state": "done"
+        },
+        {
+          "label": "关联构建来源",
+          "state": "current"
+        },
+        {
+          "label": "核对验证证据",
+          "state": "planned"
+        },
+        {
+          "label": "模型验证",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "perfmodel",
+      "name": "PerfModel",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "P0 · 模型合同",
+          "state": "unknown"
+        },
+        {
+          "label": "P1 · 独立执行框架",
+          "state": "unknown"
+        },
+        {
+          "label": "P2 · 追踪与差分",
+          "state": "unknown"
+        },
+        {
+          "label": "P3 · 计算纵切片",
+          "state": "current"
+        },
+        {
+          "label": "P4 · 硬件精度",
+          "state": "planned"
+        },
+        {
+          "label": "P5 · 可观测性",
+          "state": "planned"
+        },
+        {
+          "label": "P6 · 多时钟与并行",
+          "state": "planned"
+        },
+        {
+          "label": "P7 · 仿真性能优化",
+          "state": "planned"
+        }
+      ],
+      "current": "生命周期处理修正已实现；尚未完成工程验收",
+      "issue": "新增实现和检查用例仅完成静态审阅，尚无新的原生验证结果。",
+      "next": "重新核对实际输入，分别完成组件专项与受影响集成路径验证。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-18 03:42:04 UTC+8",
+      "stepsTitle": "生命周期处理与验证",
+      "progressAt": "2026-11-16T22:26:46+08:00",
+      "progressLabel": "11-16 22:26 UTC+8 · 实质进展",
+      "roadmapBasis": "按原始计划里程碑展示；不是整条线的验收结论。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "生命周期修正实现",
+          "state": "done"
+        },
+        {
+          "label": "静态审阅",
+          "state": "done"
+        },
+        {
+          "label": "绑定验证输入与范围",
+          "state": "current"
+        },
+        {
+          "label": "原生专项验证",
+          "state": "planned"
+        },
+        {
+          "label": "受影响集成路径验证",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "replay",
+      "name": "Replay",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "M0 · 执行契约",
+          "state": "done"
+        },
+        {
+          "label": "M1 · 内核文本回放",
+          "state": "done"
+        },
+        {
+          "label": "M2 · 扩展与二进制",
+          "state": "done"
+        },
+        {
+          "label": "M3 · 流连续性",
+          "state": "unknown"
+        },
+        {
+          "label": "M4 · 恢复与性能",
+          "state": "planned"
+        },
+        {
+          "label": "构建来源校验",
+          "state": "current"
+        }
+      ],
+      "current": "当前阶段：构建来源校验",
+      "issue": "编译来源方案正在复审；回放正文和最终化分别验收。",
+      "next": "复审来源规则，验证完整回放终态。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": null,
+      "progressLabel": "时间未核实",
+      "roadmapBasis": "上轨保留原始里程碑和独立构建来源支线。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "支持组件",
+          "state": "done"
+        },
+        {
+          "label": "修订来源方案",
+          "state": "done"
+        },
+        {
+          "label": "审查失败记录规则",
+          "state": "current"
+        },
+        {
+          "label": "实施修订",
+          "state": "planned"
+        },
+        {
+          "label": "正式验证",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "archvisual",
+      "name": "ArchVisual",
+      "owner": "",
+      "status": "verified",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "数据展示",
+          "state": "unknown"
+        },
+        {
+          "label": "交互与联动",
+          "state": "unknown"
+        },
+        {
+          "label": "渲染与验证",
+          "state": "unknown"
+        },
+        {
+          "label": "发布与维护",
+          "state": "current"
+        }
+      ],
+      "current": "当前阶段：发布与维护",
+      "issue": "本批产品已发布；正在整理辅助资料，不把未做专项计为通过。",
+      "next": "区分要维护的文档和辅助资料。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T15:15:33+08:00",
+      "progressLabel": "11-17 15:15 UTC+8 · 实质进展",
+      "roadmapBasis": "此处为并列工作域；未找到可核实的全局阶段顺序。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "产品修复",
+          "state": "done"
+        },
+        {
+          "label": "浏览器专项",
+          "state": "done"
+        },
+        {
+          "label": "发布与接入",
+          "state": "done"
+        },
+        {
+          "label": "资料核对",
+          "state": "current"
+        },
+        {
+          "label": "独立补充验证",
+          "state": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "physical",
+      "name": "Physical",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "1 · 接口与命令合同",
+          "state": "unknown"
+        },
+        {
+          "label": "2 · 独立参数与数值验证",
+          "state": "unknown"
+        },
+        {
+          "label": "3 · 结果通路与阵列",
+          "state": "current"
+        },
+        {
+          "label": "4 · 命令端到端",
+          "state": "planned"
+        },
+        {
+          "label": "5 · 系统级物理闭环",
+          "state": "planned"
+        }
+      ],
+      "current": "当前阶段：3 · 结果通路与阵列",
+      "issue": "新候选已做准备检查，动态证据和原生验证还未完成。",
+      "next": "完成动态证据检查，再准备原生验证。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T21:16:19+08:00",
+      "progressLabel": "11-17 21:16 UTC+8 · 实质进展",
+      "roadmapBasis": "按原始计划里程碑展示；不是整条线的验收结论。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "准备检查",
+          "state": "done"
+        },
+        {
+          "label": "轻量验证",
+          "state": "done"
+        },
+        {
+          "label": "核对工具与范围",
+          "state": "current"
+        },
+        {
+          "label": "核实动态证据",
+          "state": "planned"
+        },
+        {
+          "label": "核对清退证据",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "compiler",
+      "name": "Compiler",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "输入与来源",
+          "state": "unknown"
+        },
+        {
+          "label": "IR 与后端",
+          "state": "unknown"
+        },
+        {
+          "label": "并行与链接优化",
+          "state": "unknown"
+        },
+        {
+          "label": "指令与工具",
+          "state": "current"
+        },
+        {
+          "label": "对象与发布",
+          "state": "unknown"
+        }
+      ],
+      "current": "当前阶段：指令与工具",
+      "issue": "已有来源校验交付；新指令仍需使用包含候选的工具链验证。",
+      "next": "核验候选工具后进行指令专项。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T07:42:27+08:00",
+      "progressLabel": "11-17 07:42 UTC+8 · 实质进展",
+      "roadmapBasis": "此处为并列工作域；未找到可核实的全局阶段顺序。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "来源校验",
+          "state": "done"
+        },
+        {
+          "label": "绑定候选工具",
+          "state": "current"
+        },
+        {
+          "label": "编码与反汇编",
+          "state": "planned"
+        },
+        {
+          "label": "拒绝用例及回归",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "Energy",
+      "owner": "",
+      "status": "verified",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "E-1 · 命名",
+          "state": "unknown"
+        },
+        {
+          "label": "E0 · 合同",
+          "state": "unknown"
+        },
+        {
+          "label": "E1 · 内核快照",
+          "state": "unknown"
+        },
+        {
+          "label": "E2 · 表征与参考值",
+          "state": "current"
+        },
+        {
+          "label": "E3 · 活动规范化",
+          "state": "planned"
+        },
+        {
+          "label": "E4 · 计算能耗",
+          "state": "planned"
+        },
+        {
+          "label": "E5 · 存储与互联能耗",
+          "state": "planned"
+        },
+        {
+          "label": "E6 · 扩展计算组件",
+          "state": "planned"
+        },
+        {
+          "label": "E7 · 全芯片能耗",
+          "state": "planned"
+        },
+        {
+          "label": "E8 · 退役与回归",
+          "state": "planned"
+        },
+        {
+          "label": "E9 · 校准",
+          "state": "planned"
+        }
+      ],
+      "current": "当前阶段：E2 · 表征与参考值",
+      "issue": "参考模型组件已验证；整体验收与后续能耗聚合另行安排。",
+      "next": "单独规划后续活动与能耗聚合。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-17T14:48:39+08:00",
+      "progressLabel": "11-17 14:48 UTC+8 · 实质进展",
+      "roadmapBasis": "表征与活动可并行准备；计算与存储验证可分开推进；最终校准依赖表征和全芯片测评。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "分组对齐",
+          "state": "done"
+        },
+        {
+          "label": "分组合并",
+          "state": "done"
+        },
+        {
+          "label": "原生测试与交付",
+          "state": "done"
+        },
+        {
+          "label": "聚合规划",
+          "state": "current"
+        },
+        {
+          "label": "正式验收",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "modelbench",
+      "name": "Modelbench",
+      "owner": "",
+      "status": "waiting",
+      "stageBasis": "调度归纳 · 仅针对当前包",
+      "stages": [
+        {
+          "label": "网络与通信",
+          "state": "unknown"
+        },
+        {
+          "label": "部署配置",
+          "state": "unknown"
+        },
+        {
+          "label": "运行组件",
+          "state": "current"
+        },
+        {
+          "label": "消费者接入",
+          "state": "planned"
+        },
+        {
+          "label": "产物交接",
+          "state": "planned"
+        },
+        {
+          "label": "报告与迁移",
+          "state": "planned"
+        },
+        {
+          "label": "有界验收",
+          "state": "planned"
+        }
+      ],
+      "current": "运行组件阶段性代码已保存；未完成工程验收",
+      "issue": "检查用例已准备，但组件导入、编译、链接及运行检查尚未执行；代码保存不代表验证通过。",
+      "next": "重新绑定当前输入与验证环境，完成组件工程验收，再审查生产接入。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-18 01:43:47 UTC+8",
+      "stepsTitle": "当前阶段步骤",
+      "progressAt": "2026-11-18T00:08:41+08:00",
+      "progressLabel": "11-18 00:08 UTC+8 · 阶段性代码已保存",
+      "roadmapBasis": "运行组件可独立验证，并非其它阶段的硬前置。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "运行组件实现",
+          "state": "done"
+        },
+        {
+          "label": "检查用例准备",
+          "state": "done"
+        },
+        {
+          "label": "阶段性代码保存（非验收）",
+          "state": "done"
+        },
+        {
+          "label": "绑定验证环境",
+          "state": "current"
+        },
+        {
+          "label": "组件验证",
+          "state": "planned"
+        },
+        {
+          "label": "消费者接入",
+          "state": "planned"
+        }
+      ]
+    },
+    {
+      "id": "autoarch",
+      "name": "AutoArch",
+      "owner": "",
+      "status": "unverified",
+      "stageBasis": "已交付记录 · 当前节点未复核",
+      "stages": [
+        {
+          "label": "P0 · 实验基础",
+          "state": "unknown"
+        },
+        {
+          "label": "P1 · 单 Agent 验证",
+          "state": "unknown"
+        },
+        {
+          "label": "P2 · 多层级探索",
+          "state": "unknown"
+        },
+        {
+          "label": "P3 · 架构开发闭环",
+          "state": "unknown"
+        },
+        {
+          "label": "P4 · 经验复用",
+          "state": "unknown"
+        },
+        {
+          "label": "物理评估反馈",
+          "state": "unknown"
+        }
+      ],
+      "current": "独立开发：验收准备已完成，未运行",
+      "issue": "准备记录不等于工程验证通过；当前整体阶段仍未核实。",
+      "next": "由该线独立安排实际验收。",
+      "commit": "",
+      "evidence": [],
+      "checkedAt": "2026-11-18 03:42:04 UTC+8",
+      "stepsTitle": "已确认的验收准备",
+      "progressAt": "2026-11-17T08:45:34+08:00",
+      "progressLabel": "11-17 08:45 UTC+8 · 实质进展",
+      "roadmapBasis": "开发线独立推进；物理反馈是单独支线。",
+      "stepsBasis": "不含内部回执或环境信息",
+      "steps": [
+        {
+          "label": "已交付的入口",
+          "state": "done"
+        },
+        {
+          "label": "验收准备",
+          "state": "done"
+        },
+        {
+          "label": "实际工程验收",
+          "state": "planned"
+        }
+      ]
+    }
+  ],
+  "publicView": true
+}</script>
 <script>
 'use strict';
 const DATA=JSON.parse(document.getElementById('progress-data').textContent);
