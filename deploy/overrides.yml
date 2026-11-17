@@ -1,0 +1,12 @@
+url: https://computgeneral.com
+internal_url: /computing/intelligentia/
+plugins:
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - docs
+  - script
+  - oauth
+  - tests
+  - deploy
+  - package.json

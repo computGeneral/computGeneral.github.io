@@ -9,3 +9,6 @@ Gemfile.lock
 .env
 .env.*
 .wrangler/
+
+!deploy/Gemfile.lock
+__pycache__/

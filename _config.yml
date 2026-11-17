@@ -13,6 +13,7 @@ exclude:
   - oauth
   - tests
   - package.json
+  - deploy
 collections:
   computing:
     output: true

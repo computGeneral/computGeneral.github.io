@@ -1,0 +1,69 @@
+{
+	admin 127.0.0.1:2020
+	auto_https off
+	servers {
+		protocols h1 h2
+	}
+}
+
+https://computgeneral.com:8445 {
+	tls {env.COMPUTGENERAL_TLS_CERT} {env.COMPUTGENERAL_TLS_KEY}
+	encode zstd gzip
+	log {
+		output file {env.COMPUTGENERAL_STATE_DIR}/access.log
+	}
+
+	@intelligentia_exact path /computing/intelligentia
+	redir @intelligentia_exact /computing/intelligentia/ 308
+
+	# Keep gateway access controls, including the password requirement on refresh.
+	handle /_cgi-gateway/* {
+		reverse_proxy 127.0.0.1:3007
+	}
+	# CGI verifies account tokens after the Socket.IO connection upgrades.
+	handle /v1/updates* {
+		reverse_proxy 127.0.0.1:3006
+	}
+	@cgi_api path /v1/* /v2/* /v3/* /files/* /socket.io/*
+	handle @cgi_api {
+		forward_auth 127.0.0.1:3007 {
+			uri /check
+		}
+		reverse_proxy 127.0.0.1:3006
+	}
+	handle /computing/intelligentia/* {
+		route {
+			# Authenticate before stripping the prefix so the login returns here.
+			forward_auth 127.0.0.1:3007 {
+				uri /check
+			}
+			uri strip_prefix /computing/intelligentia
+			root * {env.COMPUTGENERAL_STATE_DIR}/cgi-current
+			@html path / /index.html
+			header @html Cache-Control "no-store"
+			try_files {path} /index.html
+			file_server
+		}
+	}
+	handle {
+		root * {env.COMPUTGENERAL_STATE_DIR}/current/site
+		try_files {path} {path}/index.html =404
+		file_server
+	}
+}
+
+https://www.computgeneral.com:8445 {
+	tls {env.COMPUTGENERAL_TLS_CERT} {env.COMPUTGENERAL_TLS_KEY}
+	redir https://computgeneral.com{uri} 308
+}
+
+http://computgeneral.com:8080, http://www.computgeneral.com:8080 {
+	# ACME HTTP-01 can use this directory after DNS cutover.
+	handle /.well-known/acme-challenge/* {
+		root * {env.COMPUTGENERAL_STATE_DIR}/acme
+		file_server
+	}
+	handle {
+		redir https://computgeneral.com{uri} 308
+	}
+}
