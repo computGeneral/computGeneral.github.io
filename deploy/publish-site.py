@@ -19,7 +19,7 @@ def publish(repo, state, revision='origin/main'):
         target.mkdir(parents=True, exist_ok=True)
         # Extract only committed files, never private credentials or local changes.
         with tempfile.TemporaryDirectory(prefix='computgeneral-build-') as tmp:
-            source = pathlib.Path(tmp) / 'source'; source.mkdir()
+            source = pathlib.Path(tmp).resolve() / 'source'; source.mkdir()
             archive = pathlib.Path(tmp) / 'source.tar'
             run(['git', '-C', str(repo), 'archive', '-o', str(archive), sha])
             with tarfile.open(archive) as tar:
