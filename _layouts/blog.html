@@ -11,6 +11,9 @@ layout: default
   <a class="entry" href="{{ site.internal_url }}"><span>General Intelligentia (CGI)</span><span class="chevron" aria-hidden="true">↗</span></a>
 </nav>
 {% endif %}
+{% if page.show_project_progress %}
+{{ content }}
+{% endif %}
 {% assign posts = site[page.category] | sort: 'date' | reverse %}
 {% if posts.size > 0 %}
 <div class="post-list">
