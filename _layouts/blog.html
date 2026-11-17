@@ -6,6 +6,11 @@ layout: default
   <h1>{{ page.title | escape }}</h1>
   <a class="action-link" href="{{ '/admin/' | relative_url }}#/collections/{{ page.category }}/new">New post <span aria-hidden="true">＋</span></a>
 </div>
+{% if page.category == 'computing' %}
+<nav class="entry-list" aria-label="General Computing tools" style="margin: 0 0 32px;">
+  <a class="entry" href="{{ site.internal_url }}"><span>General Intelligentia (CGI)</span><span class="chevron" aria-hidden="true">↗</span></a>
+</nav>
+{% endif %}
 {% assign posts = site[page.category] | sort: 'date' | reverse %}
 {% if posts.size > 0 %}
 <div class="post-list">
