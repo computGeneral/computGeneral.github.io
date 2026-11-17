@@ -2,6 +2,20 @@
 
 The Mac serves the public organization website and CGI through one domain. GitHub remains the content repository. Existing CGI clients can continue to use the previous endpoint during migration.
 
+## Current rollout status (2026-11-17)
+
+Prepared and tested on the existing Mac, but **public DNS cutover has not been performed**. GitHub Pages still serves the public website, and the original CGI endpoint remains protected and available.
+
+Local verification passed for the main pages, nested CGI entry, gateway login and refresh protection, exact exported-script hashes, an existing account token, and authenticated/invalid-token WebSocket handshakes. The nested CGI export was built from clean `main` at `651f452d`.
+
+Independent external probes reached public TCP 5644 but timed out on 80 and 443. The router's WAN counters received the 5644 probes and no 80/443 probes, despite a verified 443 DNAT rule; local NAT-loopback connectivity was not evidence of external reachability. Reports: [443](https://check-host.net/check-report/58873329kece), [5644](https://check-host.net/check-report/58873973kc9), [80](https://check-host.net/check-report/588739a8k62b).
+
+The temporary 443 probe rule was removed. The new website services are stopped, and their plist definitions moved to `~/.computgeneral-site/standby-agents` to prevent staging auto-start on reboot. Existing CGI services were not restarted. Generated website and prefixed CGI releases remain in the private state directory.
+
+DNS-01 validated the apex domain, but a production SAN certificate has not been issued; the www challenge was not completed. Only temporary TXT records were added; the unused misspelled test record is disabled. Apex A/MX/TXT records, the www GitHub CNAME and other production DNS records were not migrated. The staging certificate must not be used for public cutover.
+
+To finish, provide an independently reachable public 443 host, establish an approved tunnel/relay, or have the upstream network permit 80/443. Then complete certificate issuance, install the proxy with a valid certificate, re-verify from outside the LAN, and only then change DNS. The apex A record also needs ongoing DDNS updates if the WAN IPv4 changes.
+
 ## Routing
 
 - `/`: Jekyll website from `~/.computgeneral-site/current/site`.
