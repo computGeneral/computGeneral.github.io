@@ -16,6 +16,7 @@ def install(repo, state, cert, key):
     agents=[
       {'Label':'com.computgeneral.website-proxy','ProgramArguments':['/opt/homebrew/bin/caddy','run','--config',str(config),'--adapter','caddyfile'],'KeepAlive':True,'RunAtLoad':True,'EnvironmentVariables':env},
       {'Label':'com.computgeneral.website-publisher','ProgramArguments':['/usr/bin/python3',str(repo/'deploy/publish-site.py'),'--repo',str(repo),'--state',str(state)],'RunAtLoad':True,'StartInterval':60,'EnvironmentVariables':{'PATH':'/opt/homebrew/bin:/usr/bin:/bin','GIT_SSH_COMMAND':'ssh -o BatchMode=yes -o ConnectTimeout=10'}},
+      {'Label':'com.computgeneral.website-tls-renewal','ProgramArguments':['/usr/bin/python3',str(repo/'deploy/renew-tls.py'),'--state',str(state)],'StartCalendarInterval':{'Hour':4,'Minute':10},'EnvironmentVariables':{'PATH':'/opt/homebrew/bin:/usr/bin:/bin'}},
     ]
     domain='gui/'+str(os.getuid())
     for agent in agents:

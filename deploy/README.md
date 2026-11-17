@@ -49,12 +49,13 @@ Before changing DNS, verify the new proxy using explicit host-to-IP resolution. 
 1. Obtain a valid certificate with DNS-01 while GitHub Pages stays online, or complete HTTP-01 after the public DNS and port 80 routing reach the new proxy.
 2. Confirm the proxy has the valid certificate, main pages load, anonymous CGI/API requests are protected, entry-password login reaches CGI under the prefix, and refresh asks for the gateway password again.
 3. Change the apex `@` A record to the current public IPv4. Change `www` CNAME from GitHub Pages to `computgeneral.com`. Set a short TTL during migration. Check/remove only conflicting apex or `www` AAAA records if no working IPv6 path is provided.
-4. Verify both domains over public HTTPS; www redirects to the apex. Check CGI assets, API and Socket.IO traffic without the old hostname or port.
-5. Update dynamic DNS for the apex A record, or arrange operator updates whenever the WAN IP changes. Do not assume a home WAN address is fixed.
+4. Run `python3 deploy/set-cgi-origin.py --repo /absolute/path/to/cgi.computgeneral.com` to update the API’s advertised attachment and webapp URLs. This restarts only the API after a clean-main preflight and rolls back if health checks fail. Existing agent processes, gateway passwords and account data are retained.
+5. Verify both domains over public HTTPS; www redirects to the apex. Check CGI assets, API and Socket.IO traffic without the old hostname or port.
+6. Update dynamic DNS for the apex A record, or arrange operator updates whenever the WAN IP changes. Do not assume a home WAN address is fixed.
 
 ## Certificate renewal
 
-If using lego with HTTP-01, the `acme` directory is served at `/.well-known/acme-challenge/` over port 80. Renewal requires DNS still pointing to this server and the port 80 forward. Install an unattended renewal job before declaring production migration complete; check it and reload this proxy after each certificate replacement. The legacy CGI certificate renewal is independent.
+If using lego with HTTP-01, the `acme` directory is served at `/.well-known/acme-challenge/` over port 80. Renewal requires DNS still pointing to this server and the port 80 forward. The service installer adds `com.computgeneral.website-tls-renewal`, which runs `renew-tls.py` daily at 04:10. It renews via HTTP-01 when due and reloads only the website proxy when certificate bytes change. Check its logs after issuance. The legacy CGI certificate renewal is independent.
 
 ## Rollback
 
