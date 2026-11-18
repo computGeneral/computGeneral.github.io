@@ -21,7 +21,7 @@
 <main><section class="summary" aria-label="开发线状态概览" id="summary"></section><p class="notice" id="notice"></p><div class="controls"><div class="filters" role="group" aria-label="按状态筛选" id="filters"></div><input class="search" id="search" type="search" placeholder="搜索开发线、问题或下一步…" aria-label="搜索开发线、问题或下一步"></div><div class="legend"><span><i class="dot done"></i>当前包已验阶段</span><span><i class="dot current"></i>当前节点，不等于正在执行</span><span><i class="dot"></i>后续规划</span><span><i class="dot unknown"></i>证据不足／未复核</span><span class="count" id="count" aria-live="polite"></span><span class="order-note">按最近实质进展排序 · 未知时间置后</span></div><section class="cards" id="cards" aria-label="各开发线路线图"></section><div class="empty" id="empty">没有匹配的开发线，请换个关键词或筛选条件。</div><footer><span>第一轨为完整规划，第二轨为当前阶段步骤；均不表示全线完成率。</span><span>规划 → 实跑 → 验收 → 提交，分别记录，不混为完成。</span></footer></main>
 <script id="progress-data" type="application/json">{
   "title": "ArcheXplor 开发路线图",
-  "updatedAt": "2026-11-18 03:42:04 UTC+8",
+  "updatedAt": "2026-11-18 09:41:12 UTC+8",
   "head": "",
   "notice": "上轨根据每线的整体规范和原始规划整理，保留正式阶段、独立支线和并行关系。找不到统一阶段表的按并列工作域展示。下轨只显示当前步骤；最近实质进展决定排序。",
   "lines": [
@@ -609,15 +609,15 @@
           "state": "planned"
         }
       ],
-      "current": "当前阶段：E2 · 表征与参考值",
-      "issue": "参考模型组件已验证；整体验收与后续能耗聚合另行安排。",
-      "next": "单独规划后续活动与能耗聚合。",
+      "current": "独立入口构建及 5 项检查通过",
+      "issue": "仅覆盖本次入口、输入与安装兼容性；不代表完整能耗模型、校准或最终框架验收。",
+      "next": "保留本次限定结果；其余模块验证与最终组合回归分别安排。",
       "commit": "",
       "evidence": [],
-      "checkedAt": "2026-11-17 21:19:52 UTC+8",
+      "checkedAt": "2026-11-18 09:41:12 UTC+8",
       "stepsTitle": "当前阶段步骤",
-      "progressAt": "2026-11-17T14:48:39+08:00",
-      "progressLabel": "11-17 14:48 UTC+8 · 实质进展",
+      "progressAt": "2026-11-18T09:25:39.309020+08:00",
+      "progressLabel": "11-18 09:25:39 UTC+8 · 独立入口构建及 5 项检查通过",
       "roadmapBasis": "表征与活动可并行准备；计算与存储验证可分开推进；最终校准依赖表征和全芯片测评。",
       "stepsBasis": "不含内部回执或环境信息",
       "steps": [
@@ -640,6 +640,10 @@
         {
           "label": "正式验收",
           "state": "planned"
+        },
+        {
+          "label": "独立入口构建及 5 项检查",
+          "state": "done"
         }
       ]
     },
@@ -749,13 +753,13 @@
           "state": "unknown"
         }
       ],
-      "current": "独立开发：验收准备已完成，未运行",
-      "issue": "准备记录不等于工程验证通过；当前整体阶段仍未核实。",
-      "next": "由该线独立安排实际验收。",
+      "current": "独立开发：限定验证已有结果，整体验收未完成",
+      "issue": "仅记录已确认交付；不能据局部检查推断当前整体阶段完成。",
+      "next": "由该线独立安排其余验收。",
       "commit": "",
       "evidence": [],
-      "checkedAt": "2026-11-18 03:42:04 UTC+8",
-      "stepsTitle": "已确认的验收准备",
+      "checkedAt": "2026-11-18 09:41:12 UTC+8",
+      "stepsTitle": "已确认的限定验证",
       "progressAt": "2026-11-17T08:45:34+08:00",
       "progressLabel": "11-17 08:45 UTC+8 · 实质进展",
       "roadmapBasis": "开发线独立推进；物理反馈是单独支线。",
@@ -770,7 +774,11 @@
           "state": "done"
         },
         {
-          "label": "实际工程验收",
+          "label": "限定验证结果",
+          "state": "done"
+        },
+        {
+          "label": "其余工程验收",
           "state": "planned"
         }
       ]
