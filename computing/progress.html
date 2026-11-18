@@ -19,9 +19,10 @@
 </style></head><body>
 <header><div class="eyebrow">ARCHEXPLOR / DEVELOPMENT MAP</div><h1>开发路线图</h1><p>先看全程路线，再看当前阶段的步骤。每条线独占一行。</p><div class="meta"><span id="snapshot"></span><span>主仓 HEAD <code id="head"></code></span><span>离线快照 · 非实时监控</span></div></header>
 <main><section class="summary" aria-label="开发线状态概览" id="summary"></section><p class="notice" id="notice"></p><div class="controls"><div class="filters" role="group" aria-label="按状态筛选" id="filters"></div><input class="search" id="search" type="search" placeholder="搜索开发线、问题或下一步…" aria-label="搜索开发线、问题或下一步"></div><div class="legend"><span><i class="dot done"></i>当前包已验阶段</span><span><i class="dot current"></i>当前节点，不等于正在执行</span><span><i class="dot"></i>后续规划</span><span><i class="dot unknown"></i>证据不足／未复核</span><span class="count" id="count" aria-live="polite"></span><span class="order-note">按最近实质进展排序 · 未知时间置后</span></div><section class="cards" id="cards" aria-label="各开发线路线图"></section><div class="empty" id="empty">没有匹配的开发线，请换个关键词或筛选条件。</div><footer><span>第一轨为完整规划，第二轨为当前阶段步骤；均不表示全线完成率。</span><span>规划 → 实跑 → 验收 → 提交，分别记录，不混为完成。</span></footer></main>
-<script id="progress-data" type="application/json">{
+<script id="progress-data" type="application/json">
+{
   "title": "ArcheXplor 开发路线图",
-  "updatedAt": "2026-11-18 09:41:12 UTC+8",
+  "updatedAt": "2026-11-18 13:47:54 UTC+8",
   "head": "",
   "notice": "上轨根据每线的整体规范和原始规划整理，保留正式阶段、独立支线和并行关系。找不到统一阶段表的按并列工作域展示。下轨只显示当前步骤；最近实质进展决定排序。",
   "lines": [
@@ -441,7 +442,7 @@
       "id": "physical",
       "name": "Physical",
       "owner": "",
-      "status": "waiting",
+      "status": "running",
       "stageBasis": "调度归纳 · 仅针对当前包",
       "stages": [
         {
@@ -465,36 +466,36 @@
           "state": "planned"
         }
       ],
-      "current": "当前阶段：3 · 结果通路与阵列",
-      "issue": "新候选已做准备检查，动态证据和原生验证还未完成。",
-      "next": "完成动态证据检查，再准备原生验证。",
+      "current": "原型离线检查通过；执行与回收机制实施中",
+      "issue": "限定离线检查不代表真实运行；工具构建、真实夹具及系统级验收尚未执行。",
+      "next": "完成执行与回收机制的轻量验证，再按独立条件开展真实运行。",
       "commit": "",
       "evidence": [],
-      "checkedAt": "2026-11-17 21:19:52 UTC+8",
-      "stepsTitle": "当前阶段步骤",
-      "progressAt": "2026-11-17T21:16:19+08:00",
-      "progressLabel": "11-17 21:16 UTC+8 · 实质进展",
+      "checkedAt": "2026-11-18 13:47:54 UTC+8",
+      "stepsTitle": "原型与执行保障",
+      "progressAt": "2026-11-18T11:49:00+08:00",
+      "progressLabel": "11-18 11:49 UTC+8 · 原型离线阶段完成",
       "roadmapBasis": "按原始计划里程碑展示；不是整条线的验收结论。",
       "stepsBasis": "不含内部回执或环境信息",
       "steps": [
         {
-          "label": "准备检查",
+          "label": "原型源码实施",
           "state": "done"
         },
         {
-          "label": "轻量验证",
+          "label": "限定离线检查",
           "state": "done"
         },
         {
-          "label": "核对工具与范围",
+          "label": "独立审阅",
+          "state": "done"
+        },
+        {
+          "label": "执行与回收机制",
           "state": "current"
         },
         {
-          "label": "核实动态证据",
-          "state": "planned"
-        },
-        {
-          "label": "核对清退证据",
+          "label": "真实运行验收",
           "state": "planned"
         }
       ]
@@ -753,39 +754,44 @@
           "state": "unknown"
         }
       ],
-      "current": "独立开发：限定验证已有结果，整体验收未完成",
-      "issue": "仅记录已确认交付；不能据局部检查推断当前整体阶段完成。",
-      "next": "由该线独立安排其余验收。",
+      "current": "独立开发：限定案例数值检查通过，数据转换未通过",
+      "issue": "本次入口整体验收失败；修复验证正在推进，完整案例尚未重新执行。",
+      "next": "完成修复定向验证和复核，再按新条件重新验证完整案例；其余工程验收仍待完成。",
       "commit": "",
       "evidence": [],
-      "checkedAt": "2026-11-18 09:41:12 UTC+8",
-      "stepsTitle": "已确认的限定验证",
-      "progressAt": "2026-11-17T08:45:34+08:00",
-      "progressLabel": "11-17 08:45 UTC+8 · 实质进展",
+      "checkedAt": "2026-11-18 13:47:54 UTC+8",
+      "stepsTitle": "限定案例与修复验证",
+      "progressAt": "2026-11-18T11:58:58.261812+08:00",
+      "progressLabel": "11-18 11:58:58 UTC+8 · 限定案例分层结果",
       "roadmapBasis": "开发线独立推进；物理反馈是单独支线。",
       "stepsBasis": "不含内部回执或环境信息",
       "steps": [
         {
-          "label": "已交付的入口",
+          "label": "限定案例执行",
           "state": "done"
         },
         {
-          "label": "验收准备",
+          "label": "案例数值检查",
           "state": "done"
         },
         {
-          "label": "限定验证结果",
-          "state": "done"
+          "label": "数据转换修复验证",
+          "state": "current"
         },
         {
-          "label": "其余工程验收",
+          "label": "完整案例重新验证",
+          "state": "planned"
+        },
+        {
+          "label": "整体工程验收",
           "state": "planned"
         }
       ]
     }
   ],
   "publicView": true
-}</script>
+}
+</script>
 <script>
 'use strict';
 const DATA=JSON.parse(document.getElementById('progress-data').textContent);
